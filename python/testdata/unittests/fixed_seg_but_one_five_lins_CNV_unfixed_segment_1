@@ -1,0 +1,25 @@
+# Fixed values for CNVs from result file testdata/unittests/result_file_five_lins with 5 lineages, 6 CNVs and 2 states.
+# unfixed_segment: 1, unfixed_start: 1, unfixed_stop: 1
+0	0	0	0	0
+*	*	*	*	*
+0	0	1	0	0
+0	0	0	0	0
+0	0	0	0	0
+
+0	0	0	1	0
+*	*	*	*	*
+0	0	0	0	0
+0	0	0	0	0
+0	0	0	0	0
+
+0	0	0	0	0
+*	*	*	*	*
+0	0	0	0	0
+0	0	0	0	0
+0	0	0	0	0
+
+0	0	0	0	0
+*	*	*	*	*
+0	0	0	0	0
+0	1	0	0	0
+0	0	0	0	0

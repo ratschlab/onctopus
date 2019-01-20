@@ -1,0 +1,16 @@
+# Fixed values for SSMs from result file testdata/unittests/result_file_five_lins with 5 lineages and 4 SSMs.
+# unfixed_segment: -1, unfixed_start: -1, unfixed_stop: -1
+0	0	0	1	0
+0	0	0	0	0
+0	0	0	0	0
+0	0	0	0	0
+
+0	0	0	0	0
+0	0	1	0	0
+0	0	0	0	0
+0	0	0	0	0
+
+0	0	0	0	0
+0	0	0	0	0
+0	0	0	0	1
+0	1	0	0	0

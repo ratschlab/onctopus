@@ -1,0 +1,11 @@
+# Fixed values for CNVs from result file testdata/unittests/result_file_two_lins with 2 lineages, 4 CNVs and 1 states.
+# unfixed_segment: -1, unfixed_start: -1, unfixed_stop: -1
+0	0
+1	0
+1	0
+0	0
+
+0	1
+0	0
+0	0
+1	0

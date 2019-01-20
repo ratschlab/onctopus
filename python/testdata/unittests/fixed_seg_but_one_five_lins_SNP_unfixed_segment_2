@@ -1,0 +1,16 @@
+# Fixed values for SNPs from result file testdata/unittests/result_file_five_lins with 5 lineages and 4 SNPs.
+# unfixed_segment: 2, unfixed_start: 2, unfixed_stop: 2
+1
+0
+*
+0
+
+0
+1
+*
+0
+
+0
+0
+*
+1

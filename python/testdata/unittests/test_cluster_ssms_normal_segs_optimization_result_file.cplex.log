@@ -1,0 +1,47 @@
+Found incumbent of value -605.451787 after 0.00 sec. (0.10 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 516 rows and 278 columns.
+MIP Presolve modified 442 coefficients.
+Aggregator did 6 substitutions.
+Reduced MIP has 43 rows, 428 columns, and 892 nonzeros.
+Reduced MIP has 2 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.90 ticks)
+Probing fixed 0 vars, tightened 100 bounds.
+Probing time = 0.00 sec. (0.03 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 8 rows and 208 columns.
+Reduced MIP has 35 rows, 220 columns, and 484 nonzeros.
+Reduced MIP has 2 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.39 ticks)
+Probing time = 0.00 sec. (0.01 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 35 rows, 220 columns, and 484 nonzeros.
+Reduced MIP has 2 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.20 ticks)
+Probing time = 0.00 sec. (0.01 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Root relaxation solution time = 0.00 sec. (0.09 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                         -605.4518       -0.0000           100.00%
+      0     0      -11.6602     2     -605.4518      -11.6602       11   98.07%
+*     0+    0                          -15.5212      -11.6602            24.88%
+      0     0      -11.6602     2      -15.5212       Cuts: 3       15   24.88%
+      0     0      -11.6602     2      -15.5212       Cuts: 7       22   24.88%
+*     0+    0                          -11.7245      -11.6602             0.55%
+      0     2      -11.6602     2      -11.7245      -11.6602       22    0.55%
+Elapsed time = 0.01 sec. (8.46 ticks, tree = 0.00 MB, solutions = 3)
+
+Flow cuts applied:  1
+Mixed integer rounding cuts applied:  2
+
+Root node processing (before b&c):
+  Real time             =    0.01 sec. (8.47 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.31 ticks)
+                          ------------
+Total (root+branch&cut) =    0.01 sec. (8.77 ticks)

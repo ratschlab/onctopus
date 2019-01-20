@@ -1,0 +1,55 @@
+Tried aggregator 2 times.
+MIP Presolve eliminated 409 rows and 206 columns.
+MIP Presolve modified 479 coefficients.
+Aggregator did 54 substitutions.
+Reduced MIP has 101 rows, 411 columns, and 997 nonzeros.
+Reduced MIP has 22 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (1.38 ticks)
+Found incumbent of value -1566.674655 after 0.00 sec. (2.04 ticks)
+Probing fixed 0 vars, tightened 67 bounds.
+Probing changed sense of 2 constraints.
+Probing time = 0.00 sec. (0.45 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 4 rows and 2 columns.
+Reduced MIP has 97 rows, 409 columns, and 987 nonzeros.
+Reduced MIP has 20 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.52 ticks)
+Probing time = 0.00 sec. (0.37 ticks)
+Cover probing fixed 0 vars, tightened 95 bounds.
+Clique table members: 73.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Root relaxation solution time = 0.00 sec. (0.32 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                        -1566.6747       -0.0000           100.00%
+      0     0      -14.0248    10    -1566.6747      -14.0248       35   99.10%
+*     0+    0                          -19.9610      -14.0248            29.74%
+      0     0      -14.6052     5      -19.9610      Cuts: 15       66   26.83%
+      0     0      -15.5490    12      -19.9610       Cuts: 6       83   22.10%
+      0     0      -15.6525     9      -19.9610       Cuts: 7       91   21.58%
+      0     0      -15.7150     9      -19.9610       Cuts: 3       96   21.27%
+      0     0      -15.7803     9      -19.9610    MIRcuts: 4      101   20.94%
+      0     0      -15.8090     9      -19.9610    MIRcuts: 1      103   20.80%
+      0     0      -15.8545     9      -19.9610    MIRcuts: 1      107   20.57%
+      0     0      -15.9180     9      -19.9610    MIRcuts: 3      112   20.25%
+      0     0      -15.9259     9      -19.9610    MIRcuts: 1      113   20.21%
+      0     2      -15.9259     9      -19.9610      -16.7472      113   16.10%
+Elapsed time = 0.02 sec. (19.31 ticks, tree = 0.00 MB, solutions = 2)
+
+Clique cuts applied:  2
+Implied bound cuts applied:  2
+Flow cuts applied:  1
+Mixed integer rounding cuts applied:  7
+Lift and project cuts applied:  1
+Gomory fractional cuts applied:  4
+
+Root node processing (before b&c):
+  Real time             =    0.02 sec. (19.31 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (1.33 ticks)
+                          ------------
+Total (root+branch&cut) =    0.02 sec. (20.64 ticks)
