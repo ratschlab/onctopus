@@ -102,11 +102,11 @@ python2 python/main.py python/testdata/cn_data.txt python/testdata/ssm_data.txt 
 
 ​
 
-More testdatas can be found in `python/testdata/unittests/mini_test_cases`. The unit test in `python/test.py` make use of this data. You can execute the unit tests with 
+More testdatas can be found in `python/testdata/unittests/mini_test_cases`. The unit test in `python/test.py` make use of this data. Navigate into the folder `python` and you can execute the unit tests with 
 
 ```
 
-python2 python/test.py
+python2 test.py
 
 ```
 
