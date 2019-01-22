@@ -1,18 +1,3 @@
-
-Jupyter Notebook
-Untitled Last Checkpoint: 12/15/2018 (unsaved changes) [Python 2]
-
-Python 2
-
-    File
-    Edit
-    View
-    Insert
-    Cell
-    Kernel
-    Widgets
-    Help
-
 # Onctopus
 
 ​
