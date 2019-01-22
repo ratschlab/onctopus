@@ -7,7 +7,6 @@ import os.path
 import lineage_for_data_simulation
 import lineage
 import model
-import vcf
 import itertools
 import numpy as np
 import logging
@@ -16,7 +15,6 @@ import random
 import json
 
 # defined functions in this file
-# def parse_vcf_file_for_onctopus(input_file_name, output_file_name, test):
 # def write_CPLEX_results_to_result_file(file_name, opt, snp_list, ssm_list, seg_list):
 # def get_CNV_lines_from_CPLEX(opt, seg_list, start_index):
 # def get_SSM_lines_from_CPLEX(opt, ssm_list, start_index):
@@ -50,53 +48,6 @@ import json
 # def read_fixed_value_file(fixed_file):
 # def write_fixed_value_file(data, output_file, row_num, column_num, info, unfixed_segment = -1, unfixed_start = -1, unfixed_stop = -1, file_type=None, test=False):
 # def visualize_result_file(result_file, output_file=None, test=False):
-
-# parses a VCF file into a file Onctopus can read
-# TODO old function, do I really need it?
-def parse_vcf_file_for_onctopus(input_file_name, output_file_name, test):
-	#open VCF-File as Reader
-	vcf_reader= vcf.Reader(open(input_file_name,"r"))
-	
-	#open output as Writer if file doesn't exist (in a non test case)
-	output = None
-	if not test:
-		raise_if_file_exists(output_file_name)
-		output=open(output_file_name,"w")
-	else:
-		output=open(output_file_name,"w")
-		#clear outputfile
-		output.truncate()
-	
-	#write chrom, pos, variance count and reference count in outputfile
-	for record in vcf_reader:
-		output.write((record.CHROM.split("chr")[1]))
-		output.write("\t")
-		output.write(str(record.POS))
-		output.write("\t")
-		#get last field of tumour entry
-		sample=record.samples[0].data[1]
-		output.write(str(sample[1]))
-		output.write("\t")
-		output.write(str(sample[0]))
-		output.write("\n")
-
-	output.close()
-
-# reads a vcf file
-# slightly modified from https://github.com/morrislab/phylowgs/blob/master/
-# parser/create_phylowgs_inputs.py
-def read_vcf_file(input_file_name):
-	vcf_reader = vcf.Reader(filename=input_file_name)
-	records = []
-
-	for variant in vcf_reader:
-		variant.CHROM = variant.CHROM.upper()
-		# Some VCF dialects prepend "chr", some don't. Remove the prefix to
-		# standardize.
-		if variant.CHROM.startswith('CHR'):
-			variant.CHROM = variant.CHROM[3:]
-		records.append(variant)
-	return records
 
 # variants: vcf object
 # output_file_name: path where to write file for Onctopus

@@ -14,8 +14,6 @@ import exceptions_onctopus as eo
 from os.path import dirname, abspath, join, realpath, isfile, sep, pardir
 sys.path.append(dirname(realpath(__file__)) + sep + "parsing")
 import cPickle
-import gzip
-
 
 # AUPRC value for SSMs is computed between an inferred and the true lineage file
 def compute_auprc_of_inferred_and_true_result_files(result_file_inferred, result_file_true):

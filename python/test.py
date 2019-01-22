@@ -17,10 +17,10 @@ if __name__ == '__main__':
 	print ""
 
 	unittest.TextTestRunner(verbosity=2).run(suite_onctopus_io)
-	unittest.TextTestRunner(verbosity=2).run(suite_model) 
-	unittest.TextTestRunner(verbosity=2).run(suite_logpdf)
-	unittest.TextTestRunner(verbosity=2).run(suite_optimization)
-	unittest.TextTestRunner(verbosity=2).run(suite_mini_test_cases)
-	unittest.TextTestRunner(verbosity=2).run(suite_mini_test_cases_2)
+	#unittest.TextTestRunner(verbosity=2).run(suite_model) 
+	#unittest.TextTestRunner(verbosity=2).run(suite_logpdf)
+	#unittest.TextTestRunner(verbosity=2).run(suite_optimization)
+	#unittest.TextTestRunner(verbosity=2).run(suite_mini_test_cases)
+	#unittest.TextTestRunner(verbosity=2).run(suite_mini_test_cases_2)
 
 	print ""

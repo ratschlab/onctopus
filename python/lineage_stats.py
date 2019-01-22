@@ -6,8 +6,6 @@ from os import remove
 from itertools import chain
 from argparse import ArgumentParser
 
-from munkres import Munkres
-
 from evaluation import construct_assignment_matrix
 from evaluation import get_adr_matrix
 from evaluation import get_co_clustering_matrix_from_lineages
@@ -459,65 +457,65 @@ def create_matrix_with_ambiguities(z_matrix_list, cutoff_absence, cutoff_ambigui
 	return new_matrix
 	
     
-def main(omit_header, no_matching, true_lineage_file, inferred_lineage_file, output_file,
-	SMC_path=None):
-    # one instance to 
-    munkres = Munkres()
-
-    true_lin = read_result_file(true_lineage_file)
-    TPs, TNs, FPs, FNs = [list() for _ in xrange(4)]
-    FREQ_MSE = list()
-    FREQ_MAE = list()
-    CORRECT_LIN, COMPAT_LIN, FALSE_LIN  = [list() for _ in xrange(3)]
-    SMCHET1C = list()
-    for f in inferred_lineage_file:
-        test_lin = read_result_file(f)
-	current_true_lin = true_lin
-	# if no matching should be computed, the reconstructions must have the same number of 
-	# lineages
-        if no_matching:
-	    if len(test_lin) != len(true_lin):
-	    	raise Exception("Matching must be computed because reconstructions have different number"
-		    " of lineages.")
-        else:
-            match = getLineageMapping(munkres, true_lin, test_lin)
-	    (test_lin, current_true_lin) = change_labeling_of_lineage(match, test_lin, true_lin)
-        TP, FP, FN = getSSMStats(current_true_lin, test_lin)
-        TPs.append(TP)
-        FPs.append(FP)
-        FNs.append(FN)
-        FREQ_MSE.append(getLineageFrequencyMSE(current_true_lin, test_lin))
-        FREQ_MAE.append(getLineageFrequencyMAE(current_true_lin, test_lin))
-        m, c, f = getLineageReconstructionStats(constructLineageMtrx(current_true_lin),
-                constructLineageMtrx(test_lin))
-        CORRECT_LIN.append(m)
-        COMPAT_LIN.append(c)
-        FALSE_LIN.append(f)
-	if SMC_path:
-		# doesn't need the remodeled lineages after matching, original ones
-		# are fine because comparison is only done via lineage frequencies
-		SMCHET1C.append(getSMCHet1C(true_lin, test_lin, SMC_path))
-
-    print_table(TPs, FPs, FNs, FREQ_MSE, FREQ_MAE, CORRECT_LIN, COMPAT_LIN,
-            FALSE_LIN, stdout, omit_header, output_file, SMCHET1C=SMCHET1C)
-
-if __name__ == '__main__':
-    parser = ArgumentParser()
-    parser.add_argument('-o', '--omit_header', action='store_true', 
-            help='omit printing of the table header')
-    parser.add_argument('-n', '--no_matching', action='store_true', 
-            help='do not perform a matching between lineage SSMs, but ' + \
-                    'compare lineages only on the basis of their frequencies')
-    parser.add_argument('-f', '--output_file', type=str, 
-    	    help='file in which output is written')
-    parser.add_argument('-s', '--SMC_path', type=str, 
-    	    help='path to SMC-Het scoring script')
-    parser.add_argument('true_lineage_file', type=str, 
-            help='file containing information about the true lineage')
-    parser.add_argument('inferred_lineage_file', type=str, nargs='+',
-            help='file containing information about the inferred lineage')
-    args = parser.parse_args()
-    main(args.omit_header, args.no_matching, args.true_lineage_file, args.inferred_lineage_file,
-    	args.output_file, args.SMC_path)
+#def main(omit_header, no_matching, true_lineage_file, inferred_lineage_file, output_file,
+#	SMC_path=None):
+#    # one instance to 
+#    munkres = Munkres()
+#
+#    true_lin = read_result_file(true_lineage_file)
+#    TPs, TNs, FPs, FNs = [list() for _ in xrange(4)]
+#    FREQ_MSE = list()
+#    FREQ_MAE = list()
+#    CORRECT_LIN, COMPAT_LIN, FALSE_LIN  = [list() for _ in xrange(3)]
+#    SMCHET1C = list()
+#    for f in inferred_lineage_file:
+#        test_lin = read_result_file(f)
+#	current_true_lin = true_lin
+#	# if no matching should be computed, the reconstructions must have the same number of 
+#	# lineages
+#        if no_matching:
+#	    if len(test_lin) != len(true_lin):
+#	    	raise Exception("Matching must be computed because reconstructions have different number"
+#		    " of lineages.")
+#        else:
+#            match = getLineageMapping(munkres, true_lin, test_lin)
+#	    (test_lin, current_true_lin) = change_labeling_of_lineage(match, test_lin, true_lin)
+#        TP, FP, FN = getSSMStats(current_true_lin, test_lin)
+#        TPs.append(TP)
+#        FPs.append(FP)
+#        FNs.append(FN)
+#        FREQ_MSE.append(getLineageFrequencyMSE(current_true_lin, test_lin))
+#        FREQ_MAE.append(getLineageFrequencyMAE(current_true_lin, test_lin))
+#        m, c, f = getLineageReconstructionStats(constructLineageMtrx(current_true_lin),
+#                constructLineageMtrx(test_lin))
+#        CORRECT_LIN.append(m)
+#        COMPAT_LIN.append(c)
+#        FALSE_LIN.append(f)
+#	if SMC_path:
+#		# doesn't need the remodeled lineages after matching, original ones
+#		# are fine because comparison is only done via lineage frequencies
+#		SMCHET1C.append(getSMCHet1C(true_lin, test_lin, SMC_path))
+#
+#    print_table(TPs, FPs, FNs, FREQ_MSE, FREQ_MAE, CORRECT_LIN, COMPAT_LIN,
+#            FALSE_LIN, stdout, omit_header, output_file, SMCHET1C=SMCHET1C)
+#
+#if __name__ == '__main__':
+#    parser = ArgumentParser()
+#    parser.add_argument('-o', '--omit_header', action='store_true', 
+#            help='omit printing of the table header')
+#    parser.add_argument('-n', '--no_matching', action='store_true', 
+#            help='do not perform a matching between lineage SSMs, but ' + \
+#                    'compare lineages only on the basis of their frequencies')
+#    parser.add_argument('-f', '--output_file', type=str, 
+#    	    help='file in which output is written')
+#    parser.add_argument('-s', '--SMC_path', type=str, 
+#    	    help='path to SMC-Het scoring script')
+#    parser.add_argument('true_lineage_file', type=str, 
+#            help='file containing information about the true lineage')
+#    parser.add_argument('inferred_lineage_file', type=str, nargs='+',
+#            help='file containing information about the inferred lineage')
+#    args = parser.parse_args()
+#    main(args.omit_header, args.no_matching, args.true_lineage_file, args.inferred_lineage_file,
+#    	args.output_file, args.SMC_path)
 
 

@@ -113,31 +113,6 @@ class OnctopusIOTest(unittest.TestCase):
 		self.assertEqual(4, oio.compute_av_coverage_from_SNP_count(input_file_name))
 
 
-	def test_read_vcf_file(self):
-		input_file_name = "testdata/unittests/simulated.VCF"
-		output_file_name = "testdata/unittests/read_simulated.VCF"
-
-		oio.parse_vcf_file_for_onctopus(input_file_name, output_file_name, True)
-		ssm_list = oio.read_snp_ssm_file(output_file_name, snp_ssm.SSM)
-
-		self.assertEqual(len(ssm_list), 132)
-		# test first entry
-		self.assertEqual(ssm_list[0].chr, 1)
-		self.assertEqual(ssm_list[0].pos, 30000001)
-		self.assertEqual(ssm_list[0].variant_count, 20)
-		self.assertEqual(ssm_list[0].ref_count, 22)
-		# test third entry
-		self.assertEqual(ssm_list[2].chr, 1)
-		self.assertEqual(ssm_list[2].pos, 30020001)
-		self.assertEqual(ssm_list[2].variant_count, 14)
-		self.assertEqual(ssm_list[2].ref_count, 15)
-		# test last entry
-		self.assertEqual(ssm_list[-1].chr, 22)
-		self.assertEqual(ssm_list[-1].pos, 30050001)
-		self.assertEqual(ssm_list[-1].variant_count, 8)
-		self.assertEqual(ssm_list[-1].ref_count, 46)
-
-
 	def test_read_result_file(self):
 		file_name = "testdata/unittests/out_result1"
 
